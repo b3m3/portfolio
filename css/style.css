@@ -19,7 +19,7 @@ button {cursor: pointer;border: none;background: none;}
 
 body {
   font-family: 'Open Sans', Helvetica, sans-serif;
-  font-size: .875rem;
+  font-size: 14px;
   font-weight: 400;
   color: var(--grey-900);
   -webkit-font-smoothing: antialiased;
@@ -29,33 +29,59 @@ body {
 .container {
   max-width: 83.125em;
   margin: 0 auto;
-  padding: 0 .9375rem;
+  padding: 0 15px;
 }
 
 .app-wrapp {
-  padding-top: 3.125rem;
+  padding-top: 1.5625rem;
   display: grid;
-  grid-template: 12.5rem / 1fr;
-  gap: 1.875rem;
+  grid-template: auto / 200px 1fr;
+  gap: 30px;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 500;
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 20px;
   font-weight: 500;
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: 16px;
   color: var(--grey-700);
 }
 
 p {
   color: var(--grey-300);
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: .0625rem solid var(--grey-300);
+  border-radius: 100px;
+  padding: 8px 15px;
+}
+
+.btn img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.btn button {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media (any-hover: hover) {
+  .btn:hover img{
+    animation: stagger .4s linear;
+  }
 }
 
 /*keyframes*/
@@ -75,55 +101,28 @@ p {
 /*header*/
 
 .header {
-  padding: 0 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 4.6875rem;
+  min-height: 75px;
 }
 
 .header__row {
   display: flex;
   align-items: center;
-  gap: .625rem;
+  gap: 10px;
 }
 
 .header__logo {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 8px;
 }
 
 .header__logo img {
-  width: 1.4375rem;
-  height: 1.4375rem;
+  width: 25px;
+  height: 25px;
   opacity: .6;
-}
-
-.header__download {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  border: 1px solid var(--grey-300);
-  border-radius: 6.25rem;
-  padding: .5rem .9375rem;
-}
-
-@media (any-hover: hover) {
-  .header__download:hover img{
-    animation: stagger .4s linear;
-  }
-}
-
-.header__download img {
-  width: 20px;
-  height: 20px;
-}
-
-.header__download button {
-  font-size: 1rem;
-  font-weight: 500;
 }
 
 .menu-hamburger {
@@ -131,14 +130,49 @@ p {
   display: none;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 64rem) {
   .menu-hamburger {
     display: block;
   }
 }
 
 .menu-hamburger img {
-  margin-top: 5px;
-  width: 1rem;
-  height: 1rem;
+  margin-top: .3125rem;
+  width: 20px;
+  height: 20px;
+}
+
+/*sidebar*/
+
+.sidebar {
+  padding-top: 1.5625rem;
+  position: sticky;
+  top: 0;
+  max-height: 18.75rem;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.sidebar h3 {
+  opacity: .3;
+}
+
+.sidebar__navbar ul {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.sidebar__navbar li {
+  cursor: pointer;
+  font-size: 16px;
+  transition: .3s;
+}
+
+@media (any-hover: hover) {
+  .sidebar__navbar li:hover {
+    opacity: .3;
+  }
 }
