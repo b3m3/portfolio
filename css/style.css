@@ -36,7 +36,13 @@ body {
   padding-top: 1.5625rem;
   display: grid;
   grid-template: auto / 12.5rem 1fr;
-  gap: 30px;
+  gap: 1.875rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .app-wrapp {
+    grid-template: auto / 1fr;
+  }
 }
 
 h2 {
@@ -144,7 +150,7 @@ p {
 
 /*sidebar*/
 
-.sidebar {
+.sidebar__wrapp {
   padding-top: 1.5625rem;
   position: sticky;
   top: 0;
@@ -153,6 +159,47 @@ p {
   align-items: start;
   flex-direction: column;
   gap: 2.5rem;
+  transition: .5s ease;
+}
+
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: var(--grey-700);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .sidebar__wrapp  {
+    padding-left: 1.25rem;
+    position: absolute;
+    left: -100%;
+    top: 0;
+    bottom: 0;
+    max-height: unset;
+    height: 100%;
+    width: 15.625rem;
+    background: #fff;
+  }
+
+  .sidebar.active {
+    opacity: 1;
+    pointer-events: all;
+    transition: .3s ease;
+  }
+
+  .sidebar.active .sidebar__wrapp {
+    left: 0;
+  }
+
+  .sidebar.active .sidebar__close {
+    right: .9375rem;
+  }
 }
 
 .sidebar h3 {
@@ -174,6 +221,29 @@ p {
 @media (any-hover: hover) {
   .sidebar__navbar li:hover {
     opacity: .3;
+  }
+}
+
+.sidebar__close {
+  display: none;
+  transition: .5s ease;
+}
+
+.sidebar__close img {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .sidebar__close {
+    display: block;
+    position: absolute;
+    right: -100%;
+    top: .9375rem;
+    width: 1.875rem;
+    height: 1.875rem;
+    background: #fff;
+    border-radius: 50%;
   }
 }
 
@@ -279,7 +349,7 @@ p {
   height: .9375rem;
 }
 
-.item__skills {
+.item__technologies {
   padding: .8125rem 1.25rem;
   display: flex;
   gap: .3125rem;
@@ -287,7 +357,7 @@ p {
   border-radius: .75rem;
 }
 
-.item__skills li {
+.item__technologies li {
   font-size: .75rem;
   padding: 2px 5px;
   border-radius: 4px;
