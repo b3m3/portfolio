@@ -33,7 +33,7 @@ body {
 }
 
 .app-wrapp {
-  padding-top: 1.5625rem;
+  padding: 1.5625rem 0;
   display: grid;
   grid-template: auto / 12.5rem 1fr;
   gap: 1.875rem;
@@ -46,13 +46,13 @@ body {
 }
 
 h2 {
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 h3 {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 h4 {
@@ -68,10 +68,10 @@ p {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: .5rem;
   border: .0625rem solid var(--grey-300);
-  border-radius: 100px;
-  padding: 8px 15px;
+  border-radius: 6.25rem;
+  padding: .5rem .9375rem;
 }
 
 .btn img {
@@ -110,7 +110,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 75px;
+  min-height: 4.6875rem;
 }
 
 .header__row {
@@ -267,9 +267,20 @@ p {
 
 .main__items {
   display: grid;
-  grid-auto-rows: 1fr;
-  grid-template-columns: repeat(auto-fit, minmax(18.125rem, 1fr));
-  gap: .9375rem;
+  grid-template: 1fr / repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+@media screen and (max-width: 71.875rem) {
+  .main__items {
+    grid-template: 1fr / repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 38.125rem) {
+  .main__items {
+    grid-template: 1fr / 1fr;
+  }
 }
 
 .item {
@@ -281,9 +292,9 @@ p {
 .item__info {
   overflow: hidden;
   display: grid;
-  grid-template: 9.375rem 1fr / 1fr;
+  grid-template: 10.625rem 1fr / 1fr;
   box-shadow: 3px 3px .9375rem var(--grey-300);
-  border-radius: 12px;
+  border-radius: 6px;
 }
 
 @media (any-hover: hover) {
@@ -294,6 +305,7 @@ p {
 
 .item__image {
   position: relative;
+  overflow: hidden;
 }
 
 .item__image img {
@@ -358,13 +370,13 @@ p {
   flex-wrap: wrap;
   gap: .3125rem;
   box-shadow: 3px 3px .9375rem var(--grey-300);
-  border-radius: .75rem;
+  border-radius: 6px;
 }
 
 .item__technologies li {
   font-size: 10px;
   padding: 2px 5px;
-  border-radius: 4px;
+  border-radius: 3px;
   font-weight: 500;
   color: var(--grey-700);
   background: var(--grey-300);

@@ -37,9 +37,10 @@ export const createItem = (wrapp, img, name, description) => {
 export const createLinks = (wrapp, link, icon, linkName) => {
   const a = document.createElement('a');
   a.href = link;
+  a.target= "_blank";
 
   a.innerHTML = `
-    <img src="./ico/${icon}" alt="svg">
+    <img src="./ico/${icon}" alt="svg" 
     <span>${linkName}</span>
   `;
 
@@ -58,19 +59,17 @@ export const getData = async url => {
   return await response.json();
 };
 
-export const handleActiveMenu = (event, selector, variable) => {
+export const handleActiveMenu = (event, selector) => {
   const t = event.target;
-  selector.classList.remove('active');
-  
+  const contains = clas => t.classList.contains(clas);
+
   if (t.closest('.menu-hamburger')) {
-    variable = true;
-  }
-
-  if (t.classList.contains('sidebar__item') || t.closest('.sidebar__close')) {
-    variable = false;
-  }
-
-  if (variable) {
     selector.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  if (contains('sidebar__item') || t.closest('.sidebar__close')) {
+    selector.classList.remove('active');
+    document.body.style.overflow = '';
   }
 };

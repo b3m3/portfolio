@@ -1,11 +1,9 @@
 import { createCategory, createItem, createLinks,
-  createTechnology, getData, setItemsWidth, handleActiveMenu } from "./functions.js";
+  createTechnology, getData, handleActiveMenu } from "./functions.js";
 
 document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.querySelector('.sidebar');
   const main = document.querySelector('.main');
-
-  let isOpen = false;
 
   getData('./data/data.json')
     .then(res => {
@@ -44,6 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
   document.addEventListener('click', e => {
-    handleActiveMenu(e, sidebar, isOpen);
+    handleActiveMenu(e, sidebar);
   });
 });
