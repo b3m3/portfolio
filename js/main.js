@@ -1,12 +1,21 @@
 import { createCategory, createItem, createLinks, createTechnology, 
-  getData, handleActiveMenu, checkThemeMode, handleThemeMode } from "./functions.js";
+  getData, handleActiveMenu, checkThemeMode, handleThemeMode, addScrollClass } from "./functions.js";
 
 document.addEventListener('DOMContentLoaded', () => {
   const main = document.querySelector('.main');
   const modeBtn = document.querySelector('.sidebar__btn');
 
+  const w = []; // offsetTop
+
+  main.innerHTML = `<h1>LOADDDDDDDDDDDDDDDDDDD</h1>`;
+
   getData('./data/data.json')
     .then(res => {
+
+      if (res) {
+        main.innerHTML = '';
+      }
+
       let itemsArray = [];
       let linksArray = [];
       let technologiesArray = [];
@@ -41,21 +50,26 @@ document.addEventListener('DOMContentLoaded', () => {
           createTechnology(technologiesWrapps[index], technology);
         });
       });
-
+      
       cotegoriesWrapps.forEach(wrapp => {
         wrapp.id = wrapp.children[0]
           .textContent
           .split(' ')
           .join('-')
-          .toLowerCase();
-      }); // set id cotegoriesWrapps
+          .toLowerCase(); // set id cotegoriesWrapps
+      });
     })
     .catch(err => console.error(err));
 
   checkThemeMode(modeBtn);
+  addScrollClass();
 
   document.addEventListener('click', e => {
     handleActiveMenu(e);
     handleThemeMode(e, modeBtn);
+  });
+
+  window.addEventListener('scroll', () => {
+    addScrollClass();
   });
 });

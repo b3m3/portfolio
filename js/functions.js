@@ -98,3 +98,11 @@ export const handleThemeMode = (event, button) => {
     checkThemeMode(button);
   }
 };
+
+export const addScrollClass = () => {
+  if (document.documentElement.scrollTop > 1) {
+    document.body.classList.add('scrolling');
+  } else {
+    document.body.classList.remove('scrolling');
+  }
+};

@@ -12,25 +12,29 @@
 </head>
 
 <body>
-  <div class="app">
+  <div class="app" id="app">
     <div class="container">
       <!--header-->
       <header class="header">
-        <div class="header__row">
-          <button class="menu-hamburger">
-            <span class="icon-menu"></span>
-          </button>
+        <div class="container">
+          <div class="header__wrapp">
+            <div class="header__row">
+              <button class="menu-hamburger">
+                <span class="icon-menu"></span>
+              </button>
 
-          <div class="header__logo">
-            <span class="icon-user"></span>
-            <h3>Portfolio</h3>
+              <a class="header__logo" href="#app">
+                <span class="icon-user"></span>
+                <h3>Portfolio</h3>
+              </a>
+            </div>
+
+            <a class="btn" href="./cv/Dmytro Cherkashenko Front-end developer CV.pdf" download>
+              <span class="icon-download"></span>
+              <button>CV</button>
+            </a>
           </div>
         </div>
-
-        <a class="btn" href="./cv/Dmytro Cherkashenko Front-end developer CV.pdf" download>
-          <span class="icon-download"></span>
-          <button>CV</button>
-        </a>
       </header>
 
       <div class="app-wrapp">
@@ -41,14 +45,14 @@
 
             <nav class="sidebar__navbar">
               <ul>
-                <li class="sidebar__item">
-                  <a href="#landing-pages">Landing pages</a>
+                <li>
+                  <a class="sidebar__link" href="#landing-pages">Landing pages</a>
                 </li>
-                <li class="sidebar__item">
-                  <a href="#websites">Websites</a>
+                <li>
+                  <a class="sidebar__link" href="#websites">Websites</a>
                 </li>
-                <li class="sidebar__item">
-                  <a href="#apps">Apps</a>
+                <li>
+                  <a class="sidebar__link" href="#apps">Apps</a>
                 </li>
               </ul>
             </nav>
