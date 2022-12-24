@@ -67,7 +67,7 @@ export const handleActiveMenu = event => {
     document.body.classList.add('show-menu');
   }
 
-  if (contains('sidebar__item') || t.closest('.sidebar__close')) {
+  if (contains('sidebar__link') || t.closest('.sidebar__close')) {
     document.body.classList.remove('show-menu');
   }
 };
