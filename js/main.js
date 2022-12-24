@@ -7,14 +7,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   getData('./data/data.json')
     .then(res => {
+      let itemsArray = [];
       let linksArray = [];
       let technologiesArray = [];
 
-      res.forEach(({title, items}, index) => {
+      res.forEach(({title, items}) => {
         createCategory(main, title);
+        itemsArray.push(items);
+      });
 
-        const itemsWrapps = document.querySelectorAll('.main__items');
+      const itemsWrapps = document.querySelectorAll('.main__items');
 
+      itemsArray.forEach((items, index) => {
         items.forEach(({img, name, description, links, technologies}) => {
           createItem(itemsWrapps[index], img, name, description);
           linksArray.push(links);

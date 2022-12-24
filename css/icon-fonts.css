@@ -30,6 +30,9 @@
 }
 .icon-close:before {
   content: "\e900";
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 .icon-dark-mode:before {
   content: "\e901";

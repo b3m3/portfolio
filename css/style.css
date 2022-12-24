@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;800&display=swap');
 @import url('icon-fonts.css');
+
 /*reset*/
 
 * {padding: 0;margin: 0;box-sizing: border-box;font-family:inherit;font-weight: inherit;list-style: none;text-decoration: none;color: inherit;}
@@ -28,17 +29,19 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
+  body.show-menu {
+    overflow: hidden;
+  }
   body.show-menu .sidebar {
     opacity: 1;
     pointer-events: all;
-    transition: .3s ease;
   }
   body.show-menu .sidebar__wrapp {
     left: 0;
   }
   body.show-menu .sidebar__close {
     display: flex;
-    right: .9375rem;
+    top: .9375rem;
   }
 }
 
@@ -181,7 +184,7 @@ p {
   align-items: start;
   flex-direction: column;
   gap: 2.5rem;
-  transition: .3s ease;
+  transition: .5s ease;
 }
 
 @media screen and (max-width: 1024px) {
@@ -192,7 +195,7 @@ p {
     height: 100%;
     left: 0;
     top: 0;
-    background: var(--grey-700);
+    background: rgba(0, 0, 0, 0.75);
     opacity: 0;
     pointer-events: none;
   }
@@ -237,18 +240,12 @@ p {
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: -100%;
-  top: .9375rem;
-  width: 25px;
-  height: 25px;
-  background: #fff;
+  left: 16.875rem;
+  top: -100%;
+  width: 1.5625rem;
+  height: 1.5625rem;
   border-radius: 50%;
   transition: .5s ease;
-}
-
-.sidebar__close img {
-  width: .9375rem;
-  height: .9375rem;
 }
 
 @media screen and (max-width: 1024px) {
