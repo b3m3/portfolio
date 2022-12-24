@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         itemsArray.push(items);
       });
 
+      const cotegoriesWrapps = document.querySelectorAll('.main__category');
       const itemsWrapps = document.querySelectorAll('.main__items');
 
       itemsArray.forEach((items, index) => {
@@ -40,10 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
           createTechnology(technologiesWrapps[index], technology);
         });
       });
+
+      cotegoriesWrapps.forEach(wrapp => {
+        wrapp.id = wrapp.children[0]
+          .textContent
+          .split(' ')
+          .join('-')
+          .toLowerCase();
+      }); // set id cotegoriesWrapps
     })
-    .catch(err => {
-      console.error(err);
-    });
+    .catch(err => console.error(err));
 
   checkThemeMode(modeBtn);
 
