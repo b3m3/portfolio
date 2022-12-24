@@ -13,3 +13,20 @@ export const setItemsWidth = wrapps => {
     }
   });
 };
+
+export const handleActiveMenu = (event, selector, variable) => {
+  const t = event.target;
+  selector.classList.remove('active');
+  
+  if (t.closest('.menu-hamburger')) {
+    variable = true;
+  }
+
+  if (t.classList.contains('sidebar__item') || t.closest('.sidebar__close')) {
+    variable = false;
+  }
+
+  if (variable) {
+    selector.classList.add('active');
+  }
+};

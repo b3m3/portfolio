@@ -136,7 +136,7 @@ p {
   display: none;
 }
 
-@media screen and (max-width: 64rem) {
+@media screen and (max-width: 1024px) {
   .menu-hamburger {
     display: block;
   }
@@ -144,8 +144,8 @@ p {
 
 .menu-hamburger img {
   margin-top: .3125rem;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 /*sidebar*/
@@ -198,6 +198,7 @@ p {
   }
 
   .sidebar.active .sidebar__close {
+    display: flex;
     right: .9375rem;
   }
 }
@@ -226,24 +227,26 @@ p {
 
 .sidebar__close {
   display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: -100%;
+  top: .9375rem;
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  border-radius: 50%;
   transition: .5s ease;
 }
 
 .sidebar__close img {
-  width: 1.875rem;
-  height: 1.875rem;
+  width: .9375rem;
+  height: .9375rem;
 }
 
 @media screen and (max-width: 1024px) {
   .sidebar__close {
-    display: block;
-    position: absolute;
-    right: -100%;
-    top: .9375rem;
-    width: 1.875rem;
-    height: 1.875rem;
-    background: #fff;
-    border-radius: 50%;
+    display: flex;
   }
 }
 
