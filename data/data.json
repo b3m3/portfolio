@@ -9,7 +9,7 @@
         "links": [
           {
             "link": "https://b3m3.github.io/landing-page-alexis/dist/",
-            "icon": "github.svg",
+            "icon": "icon-github",
             "linkName": "Github"
           }
         ],
@@ -22,7 +22,7 @@
         "links": [
           {
             "link": "https://b3m3.github.io/landing-page-cryptmax/dist/",
-            "icon": "github.svg",
+            "icon": "icon-github",
             "linkName": "Github"
           }
         ],
@@ -35,7 +35,7 @@
         "links": [
           {
             "link": "https://b3m3.github.io/landing-page-nft2/dist/",
-            "icon": "github.svg",
+            "icon": "icon-github",
             "linkName": "Github"
           }
         ],
@@ -48,12 +48,12 @@
         "links": [
           {
             "link": "https://b3m3.github.io/landing-page-brustzentrum/dist/",
-            "icon": "github.svg",
+            "icon": "icon-github",
             "linkName": "Github"
           },
           {
             "link": "https://brustzentrumheidelberg.de/",
-            "icon": "link.svg",
+            "icon": "icon-link",
             "linkName": "brustzentrumheidelberg"
           }
         ],
@@ -71,7 +71,7 @@
         "links": [
           {
             "link": "https://b3m3.github.io/movie-app/build/",
-            "icon": "github.svg",
+            "icon": "icon-github",
             "linkName": "Github"
           }
         ],
@@ -84,7 +84,7 @@
         "links": [
           {
             "link": "https://b3m3.github.io/website-food-shop/dist/",
-            "icon": "github.svg",
+            "icon": "icon-github",
             "linkName": "Github"
           }
         ],
@@ -102,7 +102,7 @@
         "links": [
           {
             "link": "https://b3m3.github.io/quiz/build/",
-            "icon": "github.svg",
+            "icon": "icon-github",
             "linkName": "Github"
           }
         ],
@@ -115,7 +115,7 @@
         "links": [
           {
             "link": "https://b3m3.github.io/clock-timer-stopwatch/",
-            "icon": "github.svg",
+            "icon": "icon-github",
             "linkName": "Github"
           }
         ],

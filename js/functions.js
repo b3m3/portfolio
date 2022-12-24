@@ -40,8 +40,8 @@ export const createLinks = (wrapp, link, icon, linkName) => {
   a.target= "_blank";
 
   a.innerHTML = `
-    <img src="./ico/${icon}" alt="svg" 
-    <span>${linkName}</span>
+    <span class="${icon}"></span>
+    <p>${linkName}</p>
   `;
 
   wrapp.append(a);
@@ -79,11 +79,11 @@ export const checkThemeMode = button => {
   if (localStorage.getItem('b3m3-portfolio-theme')) {
     document.body.classList.add('dark-mode');
     buttonText.textContent = 'Light mode';
-    buttonIcon.src = './ico/light-mode.svg';
+    buttonIcon.className = 'icon-light-mode';
   } else {
     document.body.classList.remove('dark-mode');
     buttonText.textContent = 'Dark mode';
-    buttonIcon.src = './ico/dark-mode.svg';
+    buttonIcon.className = 'icon-dark-mode';
   }
 };
 
