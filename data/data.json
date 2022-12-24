@@ -1,5 +1,126 @@
 [
   {
-    
+    "title": "Landing pages",
+    "items": [
+      {
+        "name": "Alexis",
+        "img": "lp_01.webp",
+        "description": "Landing page contains video, tabs and animation",
+        "links": [
+          {
+            "link": "https://b3m3.github.io/landing-page-alexis/dist/",
+            "icon": "github.svg",
+            "linkName": "Github"
+          }
+        ],
+        "technologies": ["HTML", "SCSS", "JavaScript", "Gulp", "Responsive"]
+      },
+      {
+        "name": "Cryptmax",
+        "img": "lp_02.webp",
+        "description": "The landing page uses tabs, animation, an accordion menu, custom selects, and sliders",
+        "links": [
+          {
+            "link": "https://b3m3.github.io/landing-page-cryptmax/dist/",
+            "icon": "github.svg",
+            "linkName": "Github"
+          }
+        ],
+        "technologies": ["HTML", "SCSS", "JavaScript", "Gulp", "Responsive"]
+      },
+      {
+        "name": "NFT",
+        "img": "lp_03.webp",
+        "description": "The landing page has a countdown timer, sliders and animations",
+        "links": [
+          {
+            "link": "https://b3m3.github.io/landing-page-nft2/dist/",
+            "icon": "github.svg",
+            "linkName": "Github"
+          }
+        ],
+        "technologies": ["HTML", "SCSS", "JavaScript", "Gulp", "Responsive"]
+      },
+      {
+        "name": "Brustzentrum",
+        "img": "lp_04.webp",
+        "description": "Real project developed for a German clinic",
+        "links": [
+          {
+            "link": "https://b3m3.github.io/landing-page-brustzentrum/dist/",
+            "icon": "github.svg",
+            "linkName": "Github"
+          },
+          {
+            "link": "https://brustzentrumheidelberg.de/",
+            "icon": "link.svg",
+            "linkName": "brustzentrumheidelberg"
+          }
+        ],
+        "technologies": ["HTML", "SCSS", "JavaScript", "Gulp", "Responsive"]
+      }
+    ]
+  },
+  {
+    "title": "Websites",
+    "items": [
+      {
+        "name": "Movies",
+        "img": "ws_01.webp",
+        "description": "A site for searching for movies and series, with the ability to view full information, trailers, as well as the ability to add to favorites",
+        "links": [
+          {
+            "link": "https://b3m3.github.io/movie-app/build/",
+            "icon": "github.svg",
+            "linkName": "Github"
+          }
+        ],
+        "technologies": ["React", "Hooks", "Api", "Responsive"]
+      },
+      {
+        "name": "Food shop",
+        "img": "ws_02.webp",
+        "description": "On this site, you can add an item to your shopping cart, view product information, calculate the cost of all items, and send the data to a fake server. Order data can be viewed in the console. All changes are saved to local storage",
+        "links": [
+          {
+            "link": "https://b3m3.github.io/website-food-shop/dist/",
+            "icon": "github.svg",
+            "linkName": "Github"
+          }
+        ],
+        "technologies": ["HTML", "SCSS", "JavaScript", "Gulp", "Api", "Responsive"]
+      }
+    ]
+  },
+  {
+    "title": "Apps",
+    "items": [
+      {
+        "name": "Quiz",
+        "img": "ap_01.webp",
+        "description": "A quiz with a large number of questions that come from the server, it is possible to choose a category, difficulty and number of questions",
+        "links": [
+          {
+            "link": "https://b3m3.github.io/quiz/build/",
+            "icon": "github.svg",
+            "linkName": "Github"
+          }
+        ],
+        "technologies": ["React", "Hooks", "Api"]
+      },
+      {
+        "name": "Clock - timer - stopwatch",
+        "img": "ap_02.webp",
+        "description": "Simple and convenient timer, stopwatch and clock in one app",
+        "links": [
+          {
+            "link": "https://b3m3.github.io/clock-timer-stopwatch/",
+            "icon": "github.svg",
+            "linkName": "Github"
+          }
+        ],
+        "technologies": ["HTML", "CSS", "JavaScript"]
+      }
+    ]
   }
 ]
