@@ -26,6 +26,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media screen and (max-width: 1024px) {
+  body.show-menu .sidebar {
+    opacity: 1;
+    pointer-events: all;
+    transition: .3s ease;
+  }
+
+  body.show-menu .sidebar__wrapp {
+    left: 0;
+  }
+
+  body.show-menu .sidebar__close {
+    display: flex;
+    right: .9375rem;
+  }
+}
+
 .container {
   max-width: 83.125rem;
   margin: 0 auto;
@@ -185,21 +202,6 @@ p {
     height: 100%;
     width: 15.625rem;
     background: #fff;
-  }
-
-  .sidebar.active {
-    opacity: 1;
-    pointer-events: all;
-    transition: .3s ease;
-  }
-
-  .sidebar.active .sidebar__wrapp {
-    left: 0;
-  }
-
-  .sidebar.active .sidebar__close {
-    display: flex;
-    right: .9375rem;
   }
 }
 

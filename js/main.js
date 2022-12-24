@@ -1,9 +1,9 @@
-import { createCategory, createItem, createLinks,
-  createTechnology, getData, handleActiveMenu } from "./functions.js";
+import { createCategory, createItem, createLinks, createTechnology, 
+  getData, handleActiveMenu, checkThemeMode, handleThemeMode } from "./functions.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-  const sidebar = document.querySelector('.sidebar');
   const main = document.querySelector('.main');
+  const modeBtn = document.querySelector('.sidebar__btn');
 
   getData('./data/data.json')
     .then(res => {
@@ -40,8 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(err => {
       console.error(err);
     });
-  
+
+  checkThemeMode(modeBtn);
+
   document.addEventListener('click', e => {
-    handleActiveMenu(e, sidebar);
+    handleActiveMenu(e);
+    handleThemeMode(e, modeBtn);
   });
 });

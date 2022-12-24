@@ -59,17 +59,42 @@ export const getData = async url => {
   return await response.json();
 };
 
-export const handleActiveMenu = (event, selector) => {
+export const handleActiveMenu = event => {
   const t = event.target;
   const contains = clas => t.classList.contains(clas);
 
   if (t.closest('.menu-hamburger')) {
-    selector.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('show-menu');
   }
 
   if (contains('sidebar__item') || t.closest('.sidebar__close')) {
-    selector.classList.remove('active');
-    document.body.style.overflow = '';
+    document.body.classList.remove('show-menu');
+  }
+};
+
+export const checkThemeMode = button => {
+  const buttonText = button.children[1];
+  const buttonIcon = button.children[0];
+
+  if (localStorage.getItem('b3m3-portfolio-theme')) {
+    document.body.classList.add('dark-mode');
+    buttonText.textContent = 'Light mode';
+    buttonIcon.src = './ico/light-mode.svg';
+  } else {
+    document.body.classList.remove('dark-mode');
+    buttonText.textContent = 'Dark mode';
+    buttonIcon.src = './ico/dark-mode.svg';
+  }
+};
+
+export const handleThemeMode = (event, button) => {
+  if (event.target.closest('.sidebar__btn')) {
+    if (localStorage.getItem('b3m3-portfolio-theme')) {
+      localStorage.removeItem('b3m3-portfolio-theme');
+    } else {
+      localStorage.setItem('b3m3-portfolio-theme', 'dark');
+    }
+  
+    checkThemeMode(button);
   }
 };
