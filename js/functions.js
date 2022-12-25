@@ -99,10 +99,19 @@ export const handleThemeMode = (event, button) => {
   }
 };
 
-export const addScrollClass = () => {
+export const addToBodyScrollClass = () => {
   if (document.documentElement.scrollTop > 1) {
     document.body.classList.add('scrolling');
   } else {
     document.body.classList.remove('scrolling');
   }
+};
+
+export const showActivLinkOnScroll = (wtchedElems, links) => {
+  wtchedElems.forEach((wrapp, index) => {  
+    if (window.pageYOffset > wrapp.offsetTop - window.innerHeight + (window.innerHeight / 2.3)) {
+      links.forEach(link => link.classList.remove('active'));
+      links[index].classList.add('active');
+    }
+  });
 };

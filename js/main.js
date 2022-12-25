@@ -1,68 +1,75 @@
 import { createCategory, createItem, createLinks, createTechnology, 
-  getData, handleActiveMenu, checkThemeMode, handleThemeMode, addScrollClass } from "./functions.js";
+  getData, handleActiveMenu, checkThemeMode, handleThemeMode,
+  addToBodyScrollClass, showActivLinkOnScroll } from "./functions.js";
 
 document.addEventListener('DOMContentLoaded', () => {
   const main = document.querySelector('.main');
   const modeBtn = document.querySelector('.sidebar__btn');
+  const navbarLinks = document.querySelectorAll('.sidebar__link');
 
-  const w = []; // offsetTop
-
-  main.innerHTML = `<h1>LOADDDDDDDDDDDDDDDDDDD</h1>`;
+  main.innerHTML = `
+    <h1 
+      style="text-align: center; padding-top: 50px"
+    >
+      Loading...
+    </h1>
+  `;
 
   getData('./data/data.json')
-    .then(res => {
+  .then(res => {
+    main.innerHTML = '';
 
-      if (res) {
-        main.innerHTML = '';
-      }
+    let itemsArray = [];
+    let linksArray = [];
+    let technologiesArray = [];
 
-      let itemsArray = [];
-      let linksArray = [];
-      let technologiesArray = [];
+    res.forEach(({title, items}) => {
+      createCategory(main, title);
+      itemsArray.push(items);
+    });
 
-      res.forEach(({title, items}) => {
-        createCategory(main, title);
-        itemsArray.push(items);
+    const cotegoriesWrapps = document.querySelectorAll('.main__category');
+    const itemsWrapps = document.querySelectorAll('.main__items');
+
+    itemsArray.forEach((items, index) => {
+      items.forEach(({img, name, description, links, technologies}) => {
+        createItem(itemsWrapps[index], img, name, description);
+        linksArray.push(links);
+        technologiesArray.push(technologies);
       });
+    });
 
-      const cotegoriesWrapps = document.querySelectorAll('.main__category');
-      const itemsWrapps = document.querySelectorAll('.main__items');
+    const linksWrapps = document.querySelectorAll('.item__links');
+    const technologiesWrapps = document.querySelectorAll('.item__technologies');
 
-      itemsArray.forEach((items, index) => {
-        items.forEach(({img, name, description, links, technologies}) => {
-          createItem(itemsWrapps[index], img, name, description);
-          linksArray.push(links);
-          technologiesArray.push(technologies);
-        });
+    linksArray.forEach((links, index) => {
+      links.forEach(({link ,icon, linkName}) => {
+        createLinks(linksWrapps[index], link, icon, linkName);
       });
+    });
 
-      const linksWrapps = document.querySelectorAll('.item__links');
-      const technologiesWrapps = document.querySelectorAll('.item__technologies');
+    technologiesArray.forEach((technologies, index) => {
+      technologies.forEach(technology => {
+        createTechnology(technologiesWrapps[index], technology);
+      });
+    });
+    
+    cotegoriesWrapps.forEach(wrapp => {
+      wrapp.id = wrapp.children[0]
+        .textContent
+        .split(' ')
+        .join('-')
+        .toLowerCase(); // set id cotegoriesWrapps    
+        
+      showActivLinkOnScroll(cotegoriesWrapps, navbarLinks);
+    });
 
-      linksArray.forEach((links, index) => {
-        links.forEach(({link ,icon, linkName}) => {
-          createLinks(linksWrapps[index], link, icon, linkName);
-        });
-      });
-
-      technologiesArray.forEach((technologies, index) => {
-        technologies.forEach(technology => {
-          createTechnology(technologiesWrapps[index], technology);
-        });
-      });
-      
-      cotegoriesWrapps.forEach(wrapp => {
-        wrapp.id = wrapp.children[0]
-          .textContent
-          .split(' ')
-          .join('-')
-          .toLowerCase(); // set id cotegoriesWrapps
-      });
-    })
-    .catch(err => console.error(err));
+    window.onscroll = () => showActivLinkOnScroll(cotegoriesWrapps, navbarLinks);
+  })
+  .catch(err => console.error(err));
 
   checkThemeMode(modeBtn);
-  addScrollClass();
+  addToBodyScrollClass();
 
   document.addEventListener('click', e => {
     handleActiveMenu(e);
@@ -70,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('scroll', () => {
-    addScrollClass();
+    addToBodyScrollClass();
   });
 });
+

@@ -258,15 +258,20 @@ p {
   gap: .75rem;
 }
 
-.sidebar__navbar li {
+.sidebar__link {
   cursor: pointer;
   font-size: 1rem;
-  transition: .3s;
+  transition: .2s;
+}
+
+.sidebar__link.active {
+  opacity: .45;
+  padding-left: .9375rem;
 }
 
 @media (any-hover: hover) {
-  .sidebar__navbar li:hover {
-    opacity: .3;
+  .sidebar__link:hover {
+    opacity: .65;
   }
 }
 
