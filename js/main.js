@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })
   .catch(err => console.error(err));
-
+ 
   checkThemeMode(modeBtn);
   addToBodyScrollClass();
 
