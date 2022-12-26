@@ -1,4 +1,4 @@
-export const createCategory = (wrapp, title) => {
+export const appendCategories = (wrapp, title) => {
   const div = document.createElement('div');
   div.classList.add('main__category');
 
@@ -10,7 +10,7 @@ export const createCategory = (wrapp, title) => {
   wrapp.append(div);
 };
 
-export const createItem = (wrapp, img, name, description) => {
+export const appendItems = (wrapp, img, name, description) => {
   const div = document.createElement('div');
   div.classList.add('item');
 
@@ -34,7 +34,7 @@ export const createItem = (wrapp, img, name, description) => {
   wrapp.append(div);
 };
 
-export const createLinks = (wrapp, link, icon, linkName) => {
+export const appendLinks = (wrapp, link, icon, linkName) => {
   const a = document.createElement('a');
   a.href = link;
   a.target= "_blank";
@@ -47,7 +47,7 @@ export const createLinks = (wrapp, link, icon, linkName) => {
   wrapp.append(a);
 };
 
-export const createTechnology = (wrapp, name) => {
+export const appendTechnologies = (wrapp, name) => {
   const li = document.createElement('li');
   li.textContent = name;
 
@@ -107,9 +107,13 @@ export const addToBodyScrollClass = () => {
   }
 };
 
-export const showActivLinkOnScroll = (wtchedElems, links) => {
-  wtchedElems.forEach((wrapp, index) => {  
-    if (window.pageYOffset > wrapp.offsetTop - window.innerHeight + (window.innerHeight / 2.3)) {
+export const showActivLinkOnScroll = (watchedElems, links) => {
+  watchedElems.forEach((wrapp, index) => {
+    const pageOffset = window.pageYOffset;
+    const elemOffsetTop = wrapp.offsetTop;
+    const windowHeight = window.innerHeight;
+  
+    if (pageOffset > elemOffsetTop - windowHeight + (windowHeight / 2.3)) {
       links.forEach(link => link.classList.remove('active'));
       links[index].classList.add('active');
     }

@@ -1,4 +1,4 @@
-import { createCategory, createItem, createLinks, createTechnology, 
+import { appendCategories, appendItems, appendLinks, appendTechnologies, 
   getData, handleActiveMenu, checkThemeMode, handleThemeMode,
   addToBodyScrollClass, showActivLinkOnScroll } from "./functions.js";
 
@@ -24,16 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let technologiesArray = [];
 
     res.forEach(({title, items}) => {
-      createCategory(main, title);
+      appendCategories(main, title);
       itemsArray.push(items);
     });
 
-    const cotegoriesWrapps = document.querySelectorAll('.main__category');
     const itemsWrapps = document.querySelectorAll('.main__items');
-
+    
     itemsArray.forEach((items, index) => {
       items.forEach(({img, name, description, links, technologies}) => {
-        createItem(itemsWrapps[index], img, name, description);
+        appendItems(itemsWrapps[index], img, name, description);
         linksArray.push(links);
         technologiesArray.push(technologies);
       });
@@ -41,30 +40,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const linksWrapps = document.querySelectorAll('.item__links');
     const technologiesWrapps = document.querySelectorAll('.item__technologies');
-
+    
     linksArray.forEach((links, index) => {
       links.forEach(({link ,icon, linkName}) => {
-        createLinks(linksWrapps[index], link, icon, linkName);
+        appendLinks(linksWrapps[index], link, icon, linkName);
+      });
+    });
+    
+    technologiesArray.forEach((technologies, index) => {
+      technologies.forEach(technology => {
+        appendTechnologies(technologiesWrapps[index], technology);
       });
     });
 
-    technologiesArray.forEach((technologies, index) => {
-      technologies.forEach(technology => {
-        createTechnology(technologiesWrapps[index], technology);
-      });
-    });
+    const cotegoriesWrapps = document.querySelectorAll('.main__category');
     
     cotegoriesWrapps.forEach(wrapp => {
       wrapp.id = wrapp.children[0]
         .textContent
         .split(' ')
         .join('-')
-        .toLowerCase(); // set id cotegoriesWrapps    
-        
+        .toLowerCase();   
+    }); // set id cotegoriesWrapps 
+      
+    showActivLinkOnScroll(cotegoriesWrapps, navbarLinks);
+
+    window.addEventListener('resize', () => {
       showActivLinkOnScroll(cotegoriesWrapps, navbarLinks);
     });
 
-    window.onscroll = () => showActivLinkOnScroll(cotegoriesWrapps, navbarLinks);
+    window.addEventListener('scroll', () => {
+      addToBodyScrollClass();
+      showActivLinkOnScroll(cotegoriesWrapps, navbarLinks);
+    });
   })
   .catch(err => console.error(err));
 
@@ -74,10 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', e => {
     handleActiveMenu(e);
     handleThemeMode(e, modeBtn);
-  });
-
-  window.addEventListener('scroll', () => {
-    addToBodyScrollClass();
   });
 });
 

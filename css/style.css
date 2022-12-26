@@ -76,7 +76,7 @@ body.dark-mode .btn {
 /* scrolling page */
 
 body.scrolling .header__wrapp {
-  min-height: 3.125rem;
+  min-height: 3.4375rem;
 }
 
 @media screen and (min-width: 1025px) {
